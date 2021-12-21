@@ -16,7 +16,7 @@ public class ArraysUtils2 {
         System.out.println("Максимальный элемент массива = " + jj1);
         System.out.println("Элементы массива, которые меньше среднего арифметического - " + MiddleNumberList(bob));
         System.out.println("Сумма всех элементов массива - " + ArrayAllNumberSum(bob));
-        System.out.println("Два наименьших элемента массива - " + ArrayDoubleMin(bob));
+        /*System.out.println("Два наименьших элемента массива - " + ArrayDoubleMin(bob));*/
     }
 
     public static int ArrayEvenSum(int array[]){
@@ -89,7 +89,7 @@ public class ArraysUtils2 {
         return sum;
     }
 
-    public static String ArrayDoubleMin(int array[]){
+    /*public static String ArrayDoubleMin(int array[]){
         int utilita1[] = new int[2];
         int min1 = array[0];
         int min2 = array[0];
@@ -107,5 +107,5 @@ public class ArraysUtils2 {
 
         String str1 = Arrays.toString(utilita1);
         return str1;
-    }
+    }*/
 }
