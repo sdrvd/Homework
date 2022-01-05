@@ -1,4 +1,7 @@
-package home_work_3.calcs.simple;
+package home_work_3.calcs.additional;
+
+import home_work_3.calcs.api.ICalculator;
+import home_work_3.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends{
     private long countOperation = 0;
@@ -13,65 +16,43 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends{
 
     @Override
     public double plus(double a, double b){
-        double result = a + b;
         incrementCountOperation();
-        return result;
+        return super.plus(a, b);
     }
 
     @Override
     public double minus(double a, double b){
-        double result = a - b;
         incrementCountOperation();
-        return result;
+        return super.minus(a, b);
     }
 
     @Override
     public double multi(double a, double b){
-        double result = a * b;
         incrementCountOperation();
-        return result;
+        return super.multi(a, b);
     }
 
     @Override
     public double split(double a, double b){
-        double result = a / b;
         incrementCountOperation();
-        return result;
+        return super.split(a , b);
     }
 
     @Override
     public double powerOf(double a, int c){
-
-        double result = 1;
-
-        for (int i = 0; i < c; i++) {
-            result *= a;
-        }
-
         incrementCountOperation();
-        return result;
+        return super.powerOf(a, c);
     }
 
     @Override
     public double module(double n){
-        double result = 0;
-
-        if(n > 0){
-            result = n;
-        }
-
-        if(n < 0){
-            result = n * (-1);
-        }
-
         incrementCountOperation();
-        return result;
+        return super.module(n);
     }
 
     @Override
     public double squareRoot(double a){
-        double result = Math.sqrt(a);
         incrementCountOperation();
-        return result;
+        return super.squareRoot(a);
     }
 }

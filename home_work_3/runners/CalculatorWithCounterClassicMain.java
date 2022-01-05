@@ -1,21 +1,21 @@
 package home_work_3.runners;
 
-import home_work_3.calcs.simple.CalculatorWithCounterClassic;
+import home_work_3.calcs.additional.CalculatorWithCounterClassic;
 
 public class CalculatorWithCounterClassicMain {
     public static void main(String[] args) {
-        CalculatorWithCounterClassic beta = new CalculatorWithCounterClassic();
-        double c1 = beta.plus(4.1, 15);
-        beta.incrementCountOperation();
-        double c2 = beta.multi(c1, 7);
-        beta.incrementCountOperation();
-        double b = beta.split(28, 5);
-        beta.incrementCountOperation();
-        double c3 = beta.powerOf(b,2);
-        beta.incrementCountOperation();
-        double c4 = beta.plus(c2, c3);
-        beta.incrementCountOperation();
+        CalculatorWithCounterClassic calculator = new CalculatorWithCounterClassic();
+        double c1 = calculator.plus(4.1, 15);
+        calculator.incrementCountOperation();
+        double c2 = calculator.multi(c1, 7);
+        calculator.incrementCountOperation();
+        double b = calculator.split(28, 5);
+        calculator.incrementCountOperation();
+        double c3 = calculator.powerOf(b,2);
+        calculator.incrementCountOperation();
+        double c4 = calculator.plus(c2, c3);
+        calculator.incrementCountOperation();
         System.out.println(c4);
-        System.out.println(beta.getCountOperation());
+        System.out.println(calculator.getCountOperation());
     }
 }
