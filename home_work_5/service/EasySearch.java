@@ -15,7 +15,7 @@ public class EasySearch implements ISearchEngine {
     }
 
     @Override
-    public long search(String text, String word) {
+    public long searchFile(String text, String word) {
         int counter = 0;
         word = word.toLowerCase(Locale.ROOT);
         try {
@@ -32,13 +32,45 @@ public class EasySearch implements ISearchEngine {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return counter;
     }
 
     @Override
     public boolean easyFind(String text, String word) {
+        int counter = text.indexOf(word);
+        if(counter >= 0){
+            return true;
+        }
         return false;
+    }
+
+    @Override
+    public long searchText(String text, String word) {
+        int counter = 0;
+        word = word.toLowerCase(Locale.ROOT);
+        text = text.replaceAll("[.,?!)(\";:-]", "");
+        String data[] = text.split("[\\s]");
+            for (int i = 0; i < data.length; i++) {
+                data[i] = data[i].toLowerCase(Locale.ROOT);
+            }
+
+            for (int i = 0; i < data.length; i++) {
+                if (data[i].equals(word)){
+                    counter++;
+                }
+            }
+        return counter;
+    }
+
+    @Override
+    public long RegExSearch(String text, String word) {
+        return 0;
+    }
+
+    @Override
+    public void SearchEnginePunctuationNormalizer(String text) {
+
     }
 }

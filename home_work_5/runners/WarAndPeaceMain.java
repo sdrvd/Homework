@@ -10,9 +10,9 @@ public class WarAndPeaceMain {
         EasySearch finder = new EasySearch();
         //work.textSetPrint();
         //work.wordsTop(5);
-        System.out.println("Слово 'война' встречается - " + finder.search("book.txt", "Война") + " раза");
-        System.out.println("Союз 'и' встречается - " + finder.search("book.txt", "И") + " раза");
-        System.out.println("Слово 'мир' встречается - " + finder.search("book.txt", "Мир") + " раза");
+        System.out.println("Слово 'война' встречается - " + finder.searchFile("book.txt", "Война") + " раза");
+        System.out.println("Союз 'и' встречается - " + finder.searchFile("book.txt", "И") + " раза");
+        System.out.println("Слово 'мир' встречается - " + finder.searchFile("book.txt", "Мир") + " раза");
     }
 
 
