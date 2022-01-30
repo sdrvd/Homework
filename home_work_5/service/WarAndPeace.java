@@ -2,7 +2,7 @@ package home_work_5.service;
 
 
 
-import home_work_5.api.ISearchEngine;
+import home_work_5.comparators.IntegerComparator;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -53,8 +53,6 @@ public class WarAndPeace {
 
     public void wordsTop(int positions){
         Map map = new HashMap();
-        List list = new LinkedList();
-        String bookUtil;
 
 
 
@@ -72,16 +70,36 @@ public class WarAndPeace {
                  map.put(data[i], value);
                 }
             }
-            bookUtil = book.replaceAll("[.,?!)(\";:-]", "");
-            String bookUtilArray[] = bookUtil.split("[\\s]");
-            System.out.println(Arrays.toString(bookUtilArray));
-            for (int i = 0; i < book.length(); i++) {
-
+            List list;
+            list = new ArrayList(map.values());
+            List listOfKeys;
+            listOfKeys = new ArrayList(map.keySet());
+            IntegerComparator comp = new IntegerComparator();
+            list.sort(comp);
+            Object array[] = new Object[list.size()];
+            Object arrayOfKeys[] = new Object[map.size()];
+            Object outputArray[] = new Object[positions];
+            arrayOfKeys = listOfKeys.toArray();
+            array = list.toArray();
+            list.clear();
+            for (int i = array.length - 1; i >=  array.length - positions; i--) {
+                list.add(array[i]);
+            }
+            array = list.toArray();
+            for (int i = 0; i < arrayOfKeys.length; i++) {
+                int cnt = 0;
+                Object temporaryKey = arrayOfKeys[i];
+                Object temporaryValue = map.get(arrayOfKeys[i]);
+                for (int j = 0; j < array.length; j++) {
+                    if(temporaryValue.equals(array[j])){
+                        int cntOut = cnt + 1;
+                        outputArray[cnt] = "№" + cntOut + " слово " + temporaryKey + " - " + temporaryValue;
+                    }
+                    cnt++;
+                }
             }
 
-
-
-
+            System.out.println(Arrays.toString(outputArray));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
