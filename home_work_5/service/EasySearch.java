@@ -8,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EasySearch implements ISearchEngine {
 
@@ -67,7 +69,18 @@ public class EasySearch implements ISearchEngine {
 
     @Override
     public long RegExSearch(String text, String word) {
-        return 0;
+        int cnt = 0;
+        Pattern pattern = Pattern.compile(word);
+        text = text.replaceAll("[.,?!)(\";:-]", "");
+        String data[] = text.split("[\\s]");
+        for (int i = 0; i < data.length; i++) {
+            Matcher matcher = pattern.matcher(data[i]);
+            boolean matches = matcher.matches();
+            if(matches){
+                cnt++;
+            }
+        }
+        return cnt;
     }
 
     @Override
